@@ -55,7 +55,7 @@ mv gress /Users/Seangottarun/Library/texmf/tex/latex # your mv command might be 
 ```
 
 3. Then `git clone` [my fork](https://github.com/Seangottarun/coloremoji.sty.git)
-of the `coloremoji` package and place it at `/Users/Seangottarun/Library/texmf/tex/latex/` (for macOS users). Big thanks to @alecjacobson for writing the original `coloremoji` LaTeX package that I used for `gress`!
+of the `coloremoji` package and place it at `/Users/Seangottarun/Library/texmf/tex/latex/` (for macOS users). Big thanks to [@alecjacobson](https://github.com/alecjacobson) for writing the original [`coloremoji`](https://github.com/alecjacobson/coloremoji.sty) LaTeX package that I used for `gress`!
 
 ```bash
 git clone https://github.com/Seangottarun/coloremoji.sty.git
