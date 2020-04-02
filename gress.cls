@@ -60,10 +60,10 @@
 
 % Links
 \hypersetup{
-    colorlinks=true,
-    linkcolor=gressdarkblue,
-    urlcolor=gressdarkblue,
-    citecolor=gressdarkblue
+ colorlinks=true,
+ linkcolor=gressdarkblue,
+ urlcolor=gressdarkblue,
+ citecolor=gressdarkblue
 }
 
 % Graphics path
@@ -101,33 +101,33 @@
 \fancyhfoffset[L,R]{3.5in - .5\textwidth}
 \setlength{\footskip}{30pt}
 \setlength{\headheight}{30pt}
- \renewcommand{\headrule}{\hbox to\headwidth{
-    \headertextcolor\leaders\hrule height \headrulewidth\hfill}}
+\renewcommand{\headrule}{\hbox to\headwidth{
+  \headertextcolor\leaders\hrule height \headrulewidth\hfill}}
 
 
 % Title page style
 
 \fancypagestyle{plain}{%
-\chead{}
-\lhead{}
-\rhead{}
-\lfoot{{\headertext Version {\@version} \hspace{.5em} | \hspace{.5em} \thedate}}
-\cfoot{}
-\rfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\setlength{\headheight}{12pt}
+ \chead{}
+ \lhead{}
+ \rhead{}
+ \lfoot{{\headertext Version {\@version} \hspace{.5em} | \hspace{.5em} \thedate}}
+ \cfoot{}
+ \rfoot{}
+ \renewcommand{\headrulewidth}{0pt}
+ \setlength{\headheight}{12pt}
 }
 
 
 \fancypagestyle{week}{%
-\renewcommand{\headrulewidth}{0pt}
-\chead{}
-\lhead{}
-\rhead{}
-\lfoot{}
-\cfoot{}
-\rfoot{\headertext\thepage}
-\setlength{\headheight}{0pt}
+ \renewcommand{\headrulewidth}{0pt}
+ \chead{}
+ \lhead{}
+ \rhead{}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{\headertext\thepage}
+ \setlength{\headheight}{0pt}
 }
 
 % Headings
@@ -136,29 +136,29 @@
 \titleformat{\subsection}{\large\DroidSerif}{{\sectionnumberfont\thesubsection}}{1em}{}
 
 \mdfdefinestyle{week}{%
-    backgroundcolor=gresslightgray,
-    topline=true,
-    bottomline=true,
-    rightline=false,
-    leftline=false,
-    innertopmargin=1em,
-    innerbottommargin=1em,
-    innerrightmargin=1.5in,
-    innerleftmargin=1.5in,
-    leftmargin=-1.5in,
-    rightmargin=-1.5in,
-    linecolor=gressdarkblue,
-    linewidth=0.4pt
+ backgroundcolor=gresslightgray,
+ topline=true,
+ bottomline=true,
+ rightline=false,
+ leftline=false,
+ innertopmargin=1em,
+ innerbottommargin=1em,
+ innerrightmargin=1.5in,
+ innerleftmargin=1.5in,
+ leftmargin=-1.5in,
+ rightmargin=-1.5in,
+ linecolor=gressdarkblue,
+ linewidth=0.4pt
 }
 
 \newcommand\week[1]{%
-    \newpage
-    \thispagestyle{week}
-    \begin{mdframed}[style=week]
-    \section{#1}
-    % \noindent {\color{gressdarkblue} \rule{\textwidth}{1.2pt}}
-    \end{mdframed}
-    \vskip 1em
+ \newpage
+ \thispagestyle{week}
+ \begin{mdframed}[style=week]
+  \section{#1}
+  % \noindent {\color{gressdarkblue} \rule{\textwidth}{1.2pt}}
+ \end{mdframed}
+ \vskip 1em
 }
 
 % Table of Contents
@@ -177,97 +177,60 @@
 \setlength{\parskip}{0.5em}
 \linespread{1.1}
 
-% Goals
-\mdfdefinestyle{goals}{%
-    backgroundcolor=gresslightgray,
-    hidealllines=true,
-    innertopmargin=1em,
-    innerbottommargin=1em,
-    innerrightmargin=1em,
-    innerleftmargin=1em
-    leftmargin=.2\textwidth
-    rightmargin=.2\textwidth
+% custom environment template
+\mdfdefinestyle{gressbase}{%
+ backgroundcolor=gresslightgray,
+ hidealllines=true,
+ innertopmargin=1em,
+ innerbottommargin=1em,
+ innerrightmargin=1em,
+ innerleftmargin=1em
+ leftmargin=.2\textwidth
+ rightmargin=.2\textwidth
 }
-\newenvironment{goals}{%
-    \begin{mdframed}[style=goals]
-    {\sffamily\Large Monthly Goals}
-    \par\noindent\ignorespaces
-}{\ignorespacesafterend\end{mdframed}}
+\newenvironment{gressbase}[2][,]{%
+ \begin{mdframed}[style=gressbase,#1]
+  {\sffamily\Large #2}
+  \par\noindent\ignorespaces
+  }{\ignorespacesafterend\end{mdframed}}
+
+
+% Goals
+\mdfdefinestyle{goals}{style=gressbase,backgroundcolor=gresslightgray}
+\newenvironment{goals}[1]{\begin{gressbase}[style=goals]{#1}
+  }{\end{gressbase}}
 
 % Gress (For displaying progress and other notes)
-\mdfdefinestyle{gress}{%
-    backgroundcolor=gresslightgray,
-    hidealllines=true,
-    innertopmargin=1em,
-    innerbottommargin=1em,
-    innerrightmargin=1em,
-    innerleftmargin=1em
-    leftmargin=.2\textwidth
-    rightmargin=.2\textwidth
-}
-\newenvironment{gress}{%
-    \begin{mdframed}[style=gress]
-    {\sffamily\Large Daily Gress}
-    \par\noindent\ignorespaces
-}{\ignorespacesafterend\end{mdframed}}
+\mdfdefinestyle{gress}{style=gressbase,backgroundcolor=gresslightgray}
+\newenvironment{gress}{\begin{gressbase}[style=gress]{Daily Gress}
+  }{\end{gressbase}}
+
+% Questions
+\mdfdefinestyle{questions}{style=gressbase,backgroundcolor=gresslightblue}
+\newenvironment{questions}{\begin{gressbase}[style=questions]{Questions}
+  }{\end{gressbase}}
 
 % SciMath (For displaying science and math notes)
-\mdfdefinestyle{scimath}{%
-    backgroundcolor=gresslightgreen,
-    hidealllines=true,
-    innertopmargin=1em,
-    innerbottommargin=1em,
-    innerrightmargin=1em,
-    innerleftmargin=1em
-    leftmargin=.2\textwidth
-    rightmargin=.2\textwidth
-}
-\newenvironment{scimath}{%
-    \begin{mdframed}[style=scimath]
-    {\sffamily\Large Science/Math Note}
-    \par\noindent\ignorespaces
-}{\ignorespacesafterend\end{mdframed}}
+\mdfdefinestyle{scimath}{style=gressbase,backgroundcolor=gresslightgreen}
+\newenvironment{scimath}{\begin{gressbase}[style=scimath]{Science/Math Note}
+  }{\end{gressbase}}
 
 % CompSci (For displaying compsci notes)
-\mdfdefinestyle{compsci}{%
-    backgroundcolor=gresslightblue,
-    hidealllines=true,
-    innertopmargin=1em,
-    innerbottommargin=1em,
-    innerrightmargin=1em,
-    innerleftmargin=1em
-    leftmargin=.2\textwidth
-    rightmargin=.2\textwidth
-}
-\newenvironment{compsci}{%
-    \begin{mdframed}[style=compsci]
-    {\sffamily\Large CompSci Note}
-    \par\noindent\ignorespaces
-}{\ignorespacesafterend\end{mdframed}}
+\mdfdefinestyle{compsci}{style=gressbase,backgroundcolor=gresslightgreen}
+\newenvironment{compsci}{\begin{gressbase}[style=compsci]{CompSci Note}
+  }{\end{gressbase}}
 
 % Ideas (For displaying short thoughts that are more important than passing comments)
-\mdfdefinestyle{idea}{%
-    backgroundcolor=gresslightpurple,
-    hidealllines=true,
-    innertopmargin=1em,
-    innerbottommargin=1em,
-    innerrightmargin=1em,
-    innerleftmargin=1em
-    leftmargin=.2\textwidth
-    rightmargin=.2\textwidth
-}
-\newenvironment{idea}{%
-    \begin{mdframed}[style=idea]
-    {\sffamily\Large Idea}
-    \par\noindent\ignorespaces
-}{\ignorespacesafterend\end{mdframed}}
+\mdfdefinestyle{idea}{style=gressbase,backgroundcolor=gresslightpurple}
+\newenvironment{idea}{\begin{gressbase}[style=idea]{Idea}
+  }{\end{gressbase}}
 
 % Footnotes
 \renewcommand{\footnoterule}{%
-    \vskip 1.5em
-    \kern -3pt
-    {\color{gressdarkgray} \hrule width \textwidth height 0.4pt}
-    \kern 2.6pt
+\vskip 1.5em
+\kern -3pt
+{\color{gressdarkgray} \hrule width \textwidth height 0.4pt}
+\kern 2.6pt
 }
 \setlength{\footnotesep}{1em}
 
@@ -275,35 +238,35 @@
 % Title
 \newcommand{\authorfont}{\sffamily\large\color{gressdarkgray}}
 \renewcommand{\maketitle}{%
-% \BgThispage
-\begin{center}
-\vskip 1.5em
-{\noindent\huge\DroidSerif\bfseries\color{gressdarkblue}\@title}
-\vskip 1.5em
-\includegraphics[width=5in]{logo/titlepage-design}
-\vskip 1.5em
-{\authorfont \@author}
-\end{center}
-\vskip 1.5em
+ % \BgThispage
+ \begin{center}
+  \vskip 1.5em
+   {\noindent\huge\DroidSerif\bfseries\color{gressdarkblue}\@title}
+  \vskip 1.5em
+  \includegraphics[width=5in]{logo/titlepage-design}
+  \vskip 1.5em
+   {\authorfont \@author}
+ \end{center}
+ \vskip 1.5em
 }
 
 
 % Captions
 \captionsetup{%
-    format=plain,
-    labelfont={sf, bf, color=gressdarkblue},
-    labelsep=period,
-    % textfont={color=gressdarkgray},
-    margin=0.5em
+ format=plain,
+ labelfont={sf, bf, color=gressdarkblue},
+ labelsep=period,
+ % textfont={color=gressdarkgray},
+ margin=0.5em
 }
 
 % Contributors
 \newenvironment{contributors}{%
-    \vskip 1em
-    \begin{mdframed}[style=goals]
-    {\sffamily\Large Contributors}
-    \par\noindent\ignorespaces
-}{\ignorespacesafterend\end{mdframed}}
+ \vskip 1em
+ \begin{mdframed}[style=goals]
+  {\sffamily\Large Contributors}
+  \par\noindent\ignorespaces
+  }{\ignorespacesafterend\end{mdframed}}
 
 
 % Emoji bullet points
