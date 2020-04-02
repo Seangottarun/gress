@@ -271,6 +271,7 @@
 
 % Emoji bullet points
 \newcommand{\win}[1]{\color{gressdarkblue}{\large🏆: #1}\newline}
+\newcommand{\done}[1]{\color{gressdarkblue}{\large✅: #1}\newline}
 \newcommand{\thought}[1]{\color{gressnavyblue}{\large🤔: #1}\newline}
 \newcommand{\sad}[1]{\color{gresssadgray}{\large😢: #1}\newline}
 \newcommand{\issue}[1]{\color{gressred}{\large🚨: #1}\newline}
