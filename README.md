@@ -111,7 +111,7 @@ working, so ya it's pretty random.
 your progress with a quick emoji 👍.
 
 ```
-\begin{goals}
+\begin{goals}{Monthly Goals}
 Intermediate Goals:
 \begin{enumerate}
   \item Regularly use tracker ✅
@@ -152,9 +152,10 @@ Zero net flux does not imply a zero field
 
 
 ## Upcoming Features
-- [ ] Allow weekly goals and daily goals (not just monthly)
+- [X] Allow weekly goals and daily goals (not just monthly)
 - [ ] Add `classy` option for a more professional style progress tracker without emoji's
 - [ ] Add more color options
 - [ ] Dark and Light mode
 - [ ] Add more title page image options
 - [ ] Add documentation
+- [ ] Fix missing logo on 1st page
