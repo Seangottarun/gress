@@ -81,15 +81,27 @@
 \pretitle{\begin{center}\LARGE\color{gressdarkblue}\begingroup\bfseries\DroidSerif}
 \posttitle{\endgroup\par\end{center}\vskip 0.5em}
 
+% Theme pictures
+\newcommand\winterpic{logo/winter}
+\newcommand\springpic{logo/spring}
+
 % Header
 \newcommand{\headertextcolor}{\color{gressgray}}
 \newcommand{\headertext}{\sffamily\headertextcolor}
+
+% Logo
+\newcommand{\setgresslogo}[1]{\def\gresslogo{#1}}
+\setgresslogo{logo/logo}
+
+% Title page picture
+\newcommand{\setgresstitlepic}[1]{\def\gresstitlepic{#1}}
+\setgresstitlepic{\springpic}
 
 % Usual page style
 
 \pagestyle{fancy}
 \renewcommand{\sectionmark}[1]{\markright{\thesection.\ #1}}
-\lhead{\raisebox{-0.25\height}{\includegraphics[height=18pt]{logo/logo}}}
+\lhead{\raisebox{-0.25\height}{\includegraphics[height=18pt]{\gresslogo}}}
 \chead{}
 \rhead{{\headertext\rightmark}}
 \lfoot{}
@@ -243,7 +255,7 @@
   \vskip 1.5em
    {\noindent\huge\DroidSerif\bfseries\color{gressdarkblue}\@title}
   \vskip 1.5em
-  \includegraphics[width=5in]{logo/titlepage-design}
+  \includegraphics[width=5in]{\gresstitlepic}
   \vskip 1.5em
    {\authorfont \@author}
  \end{center}
