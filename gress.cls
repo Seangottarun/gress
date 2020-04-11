@@ -222,6 +222,11 @@
 \newenvironment{questions}{\begin{gressbase}[style=questions]{Questions}
   }{\end{gressbase}}
 
+% Meeting Minutes
+\mdfdefinestyle{meeting}{style=gressbase,backgroundcolor=gresslightgreen}
+\newenvironment{meeting}[2]{\begin{gressbase}[style=meeting]{Meeting Minutes - #1}
+  {\textbf{Attendees:}  #2\newline\newline}}{\end{gressbase}}
+
 % SciMath (For displaying science and math notes)
 \mdfdefinestyle{scimath}{style=gressbase,backgroundcolor=gresslightgreen}
 \newenvironment{scimath}{\begin{gressbase}[style=scimath]{Science/Math Note}
