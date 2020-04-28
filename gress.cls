@@ -219,8 +219,16 @@
 
 % Questions
 \mdfdefinestyle{questions}{style=gressbase,backgroundcolor=gresslightblue}
-\newenvironment{questions}{\begin{gressbase}[style=questions]{Questions}
-  }{\end{gressbase}}
+\newenvironment{questions}{\begin{gressbase}[style=questions]{Questions}\begin{enumerate}[label=\itshape\arabic*.]\itshape
+   }{\end{enumerate}\end{gressbase}}
+
+% Answers
+\newenvironment{answer}{\setlength{\parindent}{1em}\par\normalfont}{}
+
+% Meeting Minutes
+\mdfdefinestyle{meeting}{style=gressbase,backgroundcolor=gresslightgreen}
+\newenvironment{meeting}[2]{\begin{gressbase}[style=meeting]{Meeting Minutes - #1}
+  {\textbf{Attendees:}  #2\newline\newline}}{\end{gressbase}}
 
 % Meeting Minutes
 \mdfdefinestyle{meeting}{style=gressbase,backgroundcolor=gresslightgreen}
