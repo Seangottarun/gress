@@ -325,3 +325,6 @@
 }
 
 \makeatother
+
+% Topic command for meetings
+\newcommand{\topic}[1]{\underline{#1}}
