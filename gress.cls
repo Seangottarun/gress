@@ -8,6 +8,7 @@
 
 %%This parts handles the options passed to the class.
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+
 \ProcessOptions\relax
 
 \RequirePackage{xcolor}
@@ -31,6 +32,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{enumitem}
 \RequirePackage[some, top]{background}
+\RequirePackage{xkeyval}
 
 \newcommand\DroidSerif{\fontfamily{fdr}\selectfont}
 
@@ -230,11 +232,6 @@
 \newenvironment{meeting}[2]{\begin{gressbase}[style=meeting]{Meeting Minutes - #1}
   {\textbf{Attendees:}  #2\newline\newline}}{\end{gressbase}}
 
-% Meeting Minutes
-\mdfdefinestyle{meeting}{style=gressbase,backgroundcolor=gresslightgreen}
-\newenvironment{meeting}[2]{\begin{gressbase}[style=meeting]{Meeting Minutes - #1}
-  {\textbf{Attendees:}  #2\newline\newline}}{\end{gressbase}}
-
 % SciMath (For displaying science and math notes)
 \mdfdefinestyle{scimath}{style=gressbase,backgroundcolor=gresslightgreen}
 \newenvironment{scimath}{\begin{gressbase}[style=scimath]{Science/Math Note}
@@ -305,3 +302,26 @@
 \newcommand{\spicy}[1]{\color{gressspicyred}{\large🔥: #1}\newline}
 \newcommand{\note}[1]{{\color{gressblack}\large📝: #1}\newline}
 \newcommand{\todo}[1]{{\color{gressblack}\large📋: #1}\newline}
+
+% Custom figure command because mdframed doesn't like floats
+% Only needed when using a gress environment (which uses mdframed)
+% Otherwise use a normal figure
+\makeatletter
+
+\define@cmdkey[]{gfam}{width}{}
+\define@cmdkey[]{gfam}{scale}{}
+\define@cmdkey[]{gfam}{path}{}
+\define@cmdkey[]{gfam}{caption}{}
+
+\setkeys[]{gfam}{width=140mm,scale=1,path=\springpic,caption=Nothing} % initialize
+\newcommand{\gfig}[1][]{%
+ \begingroup
+ \setkeys[]{gfam}{#1}
+ {\centering
+  \includegraphics[width=\cmdgfam@width, scale=\cmdgfam@scale]{\cmdgfam@path}
+  \captionof{figure}{\cmdgfam@caption}
+  \par}
+ \endgroup
+}
+
+\makeatother
